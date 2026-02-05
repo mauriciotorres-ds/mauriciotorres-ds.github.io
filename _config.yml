@@ -224,3 +224,25 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+# Sidebar Tabs
+tabs:
+  - text: "Home"
+    icon: fas fa-home
+    url: /
+
+  - text: "About"
+    icon: fas fa-info-circle
+    url: /about/
+
+  - text: "Categories"
+    icon: fas fa-stream
+    url: /categories/
+
+  - text: "Tags"
+    icon: fas fa-tags
+    url: /tags/
+
+  - text: "Archives"
+    icon: fas fa-archive
+    url: /archives/
