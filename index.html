@@ -2,3 +2,44 @@
 layout: home
 # Index page
 ---
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero img {
+    max-width: 400px;
+    opacity: 0.07;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    z-index: 0;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    z-index: 1;
+    position: relative;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    z-index: 1;
+    position: relative;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+</style>
+
+<div class="hero">
+  <h1>Mauricio Torres</h1>
+  <p>Data Science • FinTech • Cloud • Teaching • Research</p>
+  <img src="/assets/img/whale.png" alt="Whale background image">
+</div>
