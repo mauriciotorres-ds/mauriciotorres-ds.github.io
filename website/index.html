@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mauricio Torres | Data Scientist</title>
+  <meta name="description" content="Mauricio Torres — Data Scientist specializing in machine learning, financial technology, and fraud analytics. M.S. Data Science candidate at UVA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0f172a;
+      --bg2:       #1e293b;
+      --card:      #111827;
+      --accent:    #38bdf8;
+      --accent2:   #818cf8;
+      --adim:      rgba(56,189,248,0.12);
+      --tx:        #e2e8f0;
+      --tx2:       #94a3b8;
+      --border:    rgba(56,189,248,0.13);
+      --nav-h:     68px;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--tx);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top:0; width:100%; height: var(--nav-h);
+      background: rgba(15,23,42,0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%;
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem; font-weight: 500;
+      color: var(--accent); text-decoration: none;
+    }
+    .nav-logo span { color: var(--tx2); }
+    .nav-links { display:flex; gap:1.8rem; list-style:none; align-items:center; }
+    .nav-links a {
+      color: var(--tx2); text-decoration:none;
+      font-size: 0.88rem; font-weight:500; letter-spacing:0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-btn {
+      border: 1px solid var(--accent) !important;
+      color: var(--accent) !important;
+      padding: 0.35rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s !important;
+    }
+    .nav-btn:hover { background: var(--adim) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: calc(var(--nav-h) + 3rem) 6% 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-dots {
+      position:absolute; inset:0; pointer-events:none;
+      background-image:
+        radial-gradient(rgba(56,189,248,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .hero-glow {
+      position:absolute; width:700px; height:700px;
+      background: radial-gradient(circle, rgba(56,189,248,0.07) 0%, transparent 68%);
+      top:50%; left:40%; transform:translate(-50%,-50%);
+      pointer-events:none;
+    }
+    .hero-content { position:relative; max-width:780px; }
+    .hero-eyebrow {
+      font-family:'JetBrains Mono',monospace;
+      font-size: 0.82rem; color: var(--accent);
+      letter-spacing:0.12em; margin-bottom:1.2rem;
+      display:flex; align-items:center; gap:0.6rem;
+    }
+    .hero-eyebrow::before {
+      content:''; display:block; width:32px; height:1px; background:var(--accent);
+    }
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight:700; line-height:1.08; letter-spacing:-0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .accent { color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      color: var(--tx2); font-weight:400; margin-bottom: 1.5rem;
+    }
+    .hero-desc {
+      font-size:1rem; color:var(--tx2);
+      max-width:540px; margin-bottom:2.5rem; line-height:1.85;
+    }
+    .ctas { display:flex; gap:1rem; flex-wrap:wrap; }
+    .btn-p {
+      background:var(--accent); color:var(--bg);
+      padding: 0.72rem 1.8rem; border-radius:8px;
+      text-decoration:none; font-weight:700; font-size:0.9rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-p:hover { opacity:0.88; transform:translateY(-2px); }
+    .btn-o {
+      background:transparent; color:var(--tx);
+      padding: 0.72rem 1.8rem; border-radius:8px;
+      text-decoration:none; font-weight:500; font-size:0.9rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-o:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+
+    /* ── SECTION SHELL ── */
+    section { padding: 6rem 6%; }
+    .s-label {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.75rem; color:var(--accent);
+      letter-spacing:0.16em; text-transform:uppercase;
+      margin-bottom:0.5rem;
+      display:flex; align-items:center; gap:0.7rem;
+    }
+    .s-label::after {
+      content:''; display:block; width:60px; height:1px;
+      background:var(--accent); opacity:0.45;
+    }
+    .s-title {
+      font-size:clamp(1.6rem,3vw,2.1rem);
+      font-weight:700; margin-bottom:3rem; letter-spacing:-0.01em;
+    }
+    .alt-bg { background: var(--bg2); }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display:grid; grid-template-columns:240px 1fr;
+      gap:4rem; align-items:center; max-width:950px;
+    }
+    .photo-wrap { position:relative; }
+    .photo-wrap img {
+      width:100%; border-radius:14px;
+      display:block; transition: filter 0.3s;
+    }
+    .photo-wrap::after {
+      content:''; position:absolute;
+      inset: 14px -14px -14px 14px;
+      border: 2px solid var(--accent);
+      border-radius:14px; z-index:-1; opacity:0.35;
+    }
+    .about-p { color:var(--tx2); margin-bottom:1.1rem; font-size:0.97rem; line-height:1.85; }
+    .about-p strong { color:var(--tx); }
+    .chips { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:1.4rem; }
+    .chip {
+      background:var(--adim); color:var(--accent);
+      padding:0.28rem 0.75rem; border-radius:20px;
+      font-size:0.78rem; font-weight:500;
+      border:1px solid rgba(56,189,248,0.22);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1.4rem; max-width:960px;
+    }
+    .sk-card {
+      background:var(--bg2); border:1px solid var(--border);
+      border-radius:12px; padding:1.4rem;
+      transition: border-color 0.2s;
+    }
+    .sk-card:hover { border-color:rgba(56,189,248,0.4); }
+    .sk-head {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.72rem; color:var(--accent);
+      letter-spacing:0.1em; text-transform:uppercase;
+      margin-bottom:0.9rem; font-weight:500;
+    }
+    .sk-tags { display:flex; flex-wrap:wrap; gap:0.38rem; }
+    .sk-tag {
+      background:rgba(255,255,255,0.04);
+      color:var(--tx2); padding:0.22rem 0.55rem;
+      border-radius:4px; font-size:0.76rem;
+      border:1px solid rgba(255,255,255,0.08);
+      font-family:'JetBrains Mono',monospace;
+    }
+
+    /* ── PROJECTS ── */
+    .proj-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      gap:1.5rem; max-width:1100px;
+    }
+    .proj-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:16px; padding:2rem;
+      display:flex; flex-direction:column; gap:0.9rem;
+      transition: border-color 0.22s, transform 0.22s;
+      position:relative; overflow:hidden;
+    }
+    .proj-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity:0; transition:opacity 0.2s;
+    }
+    .proj-card:hover { border-color:rgba(56,189,248,0.35); transform:translateY(-5px); }
+    .proj-card:hover::before { opacity:1; }
+    .proj-badge {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.68rem; color:var(--accent);
+      letter-spacing:0.06em; text-transform:uppercase; font-weight:500;
+    }
+    .proj-icon { font-size:1.75rem; }
+    .proj-title { font-size:1.05rem; font-weight:700; }
+    .proj-desc { color:var(--tx2); font-size:0.88rem; line-height:1.72; flex:1; }
+    .proj-tags { display:flex; flex-wrap:wrap; gap:0.38rem; }
+    .proj-tag {
+      background:var(--adim); color:var(--accent);
+      padding:0.2rem 0.55rem; border-radius:4px;
+      font-size:0.72rem; font-family:'JetBrains Mono',monospace;
+    }
+    .proj-links { display:flex; gap:1.2rem; }
+    .proj-link {
+      color:var(--tx2); text-decoration:none;
+      font-size:0.84rem; font-weight:500;
+      display:flex; align-items:center; gap:0.3rem;
+      transition:color 0.2s;
+    }
+    .proj-link:hover { color:var(--accent); }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { max-width:800px; }
+    .exp-item {
+      display:grid; grid-template-columns:160px 1fr;
+      gap:2rem; padding-bottom:3rem; position:relative;
+    }
+    .exp-item::before {
+      content:''; position:absolute;
+      left:160px; top:10px; bottom:0; width:1px;
+      background:var(--border); margin-left:2rem;
+    }
+    .exp-item:last-child::before { display:none; }
+    .exp-date {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.77rem; color:var(--tx2);
+      text-align:right; padding-top:0.15rem;
+    }
+    .exp-body { padding-left:2rem; position:relative; }
+    .exp-body::before {
+      content:''; position:absolute;
+      left:calc(2rem - 5px); top:10px;
+      width:10px; height:10px; border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 12px rgba(56,189,248,0.55);
+    }
+    .exp-role { font-weight:700; font-size:1rem; margin-bottom:0.18rem; }
+    .exp-org { color:var(--accent); font-size:0.88rem; margin-bottom:0.8rem; font-weight:500; }
+    .exp-ul { list-style:none; display:flex; flex-direction:column; gap:0.4rem; }
+    .exp-ul li {
+      color:var(--tx2); font-size:0.88rem;
+      padding-left:1.1rem; position:relative; line-height:1.65;
+    }
+    .exp-ul li::before { content:'▹'; position:absolute; left:0; color:var(--accent); }
+    .exp-ul li strong { color:var(--tx); }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.4rem; max-width:900px;
+    }
+    .edu-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:16px; padding:1.8rem;
+      transition:border-color 0.2s;
+    }
+    .edu-card:hover { border-color:rgba(56,189,248,0.35); }
+    .edu-deg {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.72rem; color:var(--accent);
+      letter-spacing:0.08em; text-transform:uppercase;
+      margin-bottom:0.45rem; font-weight:500;
+    }
+    .edu-school { font-size:1.12rem; font-weight:700; margin-bottom:0.25rem; }
+    .edu-meta { color:var(--tx2); font-size:0.82rem; margin-bottom:0.75rem; }
+    .edu-courses { color:var(--tx2); font-size:0.8rem; line-height:1.65; }
+
+    /* ── CONTACT ── */
+    #contact { text-align:center; }
+    .contact-inner { max-width:580px; margin:0 auto; }
+    .contact-desc { color:var(--tx2); font-size:0.97rem; line-height:1.85; margin-bottom:2.2rem; }
+    .contact-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .contact-link {
+      display:flex; align-items:center; gap:0.45rem;
+      color:var(--tx2); text-decoration:none;
+      font-size:0.88rem; padding:0.55rem 1.2rem;
+      border:1px solid var(--border); border-radius:8px;
+      transition:color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .contact-link:hover { color:var(--accent); border-color:var(--accent); background:var(--adim); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align:center; padding:2rem 6%;
+      border-top:1px solid var(--border);
+      color:var(--tx2); font-size:0.77rem;
+      font-family:'JetBrains Mono',monospace;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:768px) {
+      .about-grid { grid-template-columns:1fr; }
+      .photo-wrap { max-width:200px; margin:0 auto; }
+      .exp-item { grid-template-columns:1fr; gap:0.4rem; }
+      .exp-item::before { display:none; }
+      .exp-date { text-align:left; }
+      .exp-body { padding-left:1rem; }
+      .exp-body::before { left:0; }
+    }
+    @media (max-width:520px) {
+      .nav-links li:not(:last-child) { display:none; }
+      section { padding: 4rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">mt<span>.dev</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://github.com/mauriciotorres-ds" target="_blank" class="nav-btn">GitHub ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Hi, my name is</div>
+    <h1>Mauricio<br><span class="accent">Torres.</span></h1>
+    <p class="hero-sub">Data Scientist &nbsp;·&nbsp; Fintech &amp; ML &nbsp;·&nbsp; UVA MSDS</p>
+    <p class="hero-desc">
+      I build machine learning models and analytical tools that turn messy data into clear decisions — with a focus on financial technology, fraud detection, and predictive analytics.
+    </p>
+    <div class="ctas">
+      <a href="#projects" class="btn-p">View My Work</a>
+      <a href="#contact" class="btn-o">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt-bg">
+  <div class="s-label">01 &nbsp;·&nbsp; About Me</div>
+  <h2 class="s-title">Who I Am</h2>
+  <div class="about-grid">
+    <div class="photo-wrap">
+      <img src="assets/img/headshot.jpg" alt="Mauricio Torres" />
+    </div>
+    <div>
+      <p class="about-p">
+        I'm a <strong>data scientist</strong> with a background in economics and a focus on machine learning, financial technology, and fraud analytics. I care about building things that are rigorous, useful, and well-communicated.
+      </p>
+      <p class="about-p">
+        At the <strong>U.S. CFTC</strong>, I built predictive models to detect suspicious cryptocurrency transactions and led a research initiative on a <strong>$75B+ fraud industry</strong> — presenting findings alongside 20+ federal agencies. That experience shaped my approach: data is most valuable when it drives real decisions.
+      </p>
+      <p class="about-p">
+        I'm currently pursuing my <strong>M.S. in Data Science at UVA</strong> (graduating August 2026) and actively seeking full-time data science roles where I can hit the ground running.
+      </p>
+      <div class="chips">
+        <span class="chip">Machine Learning</span>
+        <span class="chip">Financial Technology</span>
+        <span class="chip">Fraud Analytics</span>
+        <span class="chip">Python</span>
+        <span class="chip">R</span>
+        <span class="chip">SQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="s-label">02 &nbsp;·&nbsp; Skills</div>
+  <h2 class="s-title">What I Work With</h2>
+  <div class="skills-grid">
+    <div class="sk-card">
+      <div class="sk-head">Languages</div>
+      <div class="sk-tags">
+        <span class="sk-tag">Python</span>
+        <span class="sk-tag">R</span>
+        <span class="sk-tag">SQL</span>
+        <span class="sk-tag">Bash</span>
+      </div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-head">ML &amp; Stats</div>
+      <div class="sk-tags">
+        <span class="sk-tag">scikit-learn</span>
+        <span class="sk-tag">Predictive Modeling</span>
+        <span class="sk-tag">Feature Engineering</span>
+        <span class="sk-tag">Inferential Stats</span>
+      </div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-head">Data &amp; Viz</div>
+      <div class="sk-tags">
+        <span class="sk-tag">Pandas</span>
+        <span class="sk-tag">NumPy</span>
+        <span class="sk-tag">Matplotlib</span>
+        <span class="sk-tag">ggplot2</span>
+        <span class="sk-tag">dplyr</span>
+      </div>
+    </div>
+    <div class="sk-card">
+      <div class="sk-head">Tools</div>
+      <div class="sk-tags">
+        <span class="sk-tag">GitHub</span>
+        <span class="sk-tag">VSCode</span>
+        <span class="sk-tag">Stata</span>
+        <span class="sk-tag">Excel</span>
+        <span class="sk-tag">R Markdown</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="alt-bg">
+  <div class="s-label">03 &nbsp;·&nbsp; Projects</div>
+  <h2 class="s-title">Things I've Built</h2>
+  <div class="proj-grid">
+
+    <!-- Project 1: Music Reviews -->
+    <div class="proj-card">
+      <div class="proj-badge">⭐ Featured &nbsp;·&nbsp; Published at UVA</div>
+      <div class="proj-icon">🎵</div>
+      <div class="proj-title">Biased Music Reviews &amp; AI Genre Prediction</div>
+      <div class="proj-desc">
+        Used the Spotify API and Pitchfork review data to investigate whether genre bias in music journalism gives AI a predictive edge. Built ML classification models to predict genres from review language — revealing how critical writing encodes implicit bias.
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">NLP</span>
+        <span class="proj-tag">Classification</span>
+        <span class="proj-tag">Spotify API</span>
+        <span class="proj-tag">scikit-learn</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/skunitzlevy/ds6021-pitchfork" target="_blank" class="proj-link">↗ GitHub</a>
+        <a href="https://datascience.virginia.edu/news/biased-music-reviews-give-ai-edge-genre-prediction" target="_blank" class="proj-link">↗ Read the Article</a>
+      </div>
+    </div>
+
+    <!-- Project 2: FBI Crypto -->
+    <div class="proj-card">
+      <div class="proj-icon">🔍</div>
+      <div class="proj-title">FBI IC3 Cryptocurrency Scam Analysis</div>
+      <div class="proj-desc">
+        Analyzed a large FBI Internet Crime Complaint Center dataset to uncover cryptocurrency fraud patterns across demographics. Engineered features with scikit-learn to profile high-risk groups and created visualizations highlighting key fraud trends.
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">Pandas</span>
+        <span class="proj-tag">scikit-learn</span>
+        <span class="proj-tag">Matplotlib</span>
+        <span class="proj-tag">Feature Engineering</span>
+      </div>
+      <div class="proj-links">
+        <a href="mailto:matorres0925@gmail.com" class="proj-link">↗ Inquire for Details</a>
+      </div>
+    </div>
+
+    <!-- Project 3: Labor Economics -->
+    <div class="proj-card">
+      <div class="proj-icon">📊</div>
+      <div class="proj-title">U.S. Union Membership Trends</div>
+      <div class="proj-desc">
+        Analyzed Bureau of Labor Statistics datasets to evaluate long-term structural shifts in U.S. union membership. Used R to go beyond raw membership numbers and uncover deeper changes in labor activity. Presented findings at two academic conferences.
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">R</span>
+        <span class="proj-tag">ggplot2</span>
+        <span class="proj-tag">dplyr</span>
+        <span class="proj-tag">BLS Data</span>
+        <span class="proj-tag">Econometrics</span>
+      </div>
+      <div class="proj-links">
+        <a href="mailto:matorres0925@gmail.com" class="proj-link">↗ Conference Presented</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="s-label">04 &nbsp;·&nbsp; Experience</div>
+  <h2 class="s-title">Where I've Worked</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-date">Jul 2024 –<br>Nov 2024</div>
+      <div class="exp-body">
+        <div class="exp-role">Financial Technology Intern</div>
+        <div class="exp-org">U.S. Commodity Futures Trading Commission (CFTC) &nbsp;·&nbsp; Washington, DC</div>
+        <ul class="exp-ul">
+          <li>Led research on "pig butchering" cryptocurrency scams — an estimated <strong>$75B+ fraud industry</strong></li>
+          <li>Built predictive models to detect suspicious transactions, informing policy discussions with <strong>20+ agencies</strong></li>
+          <li>Researched AI applications, blockchain analytics, and cryptocurrency fraud patterns at the regulatory frontier</li>
+          <li>Produced data-backed reports to support financial technology policy discussions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jan 2025 –<br>May 2025</div>
+      <div class="exp-body">
+        <div class="exp-role">Student Ambassador</div>
+        <div class="exp-org">GMU College of Economics &nbsp;·&nbsp; Fairfax, VA</div>
+        <ul class="exp-ul">
+          <li>Represented the College at admissions events, communicating how data-driven research translates to real-world outcomes</li>
+          <li>Collaborated with faculty and staff to plan outreach initiatives and deliver campus tours</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="alt-bg">
+  <div class="s-label">05 &nbsp;·&nbsp; Education</div>
+  <h2 class="s-title">Where I've Studied</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-deg">M.S. Data Science</div>
+      <div class="edu-school">University of Virginia</div>
+      <div class="edu-meta">Charlottesville, VA &nbsp;·&nbsp; Expected Aug. 2026</div>
+      <div class="edu-courses">Machine Learning &nbsp;·&nbsp; Data Engineering &nbsp;·&nbsp; Computation for Data Science &nbsp;·&nbsp; Understanding Uncertainty</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-deg">B.S. Economics &nbsp;·&nbsp; Minor: Data Analysis</div>
+      <div class="edu-school">George Mason University</div>
+      <div class="edu-meta">Fairfax, VA &nbsp;·&nbsp; May 2025 &nbsp;·&nbsp; GPA 3.6 (Cum Laude)</div>
+      <div class="edu-courses">Econometrics &nbsp;·&nbsp; Applied Regression Analysis &nbsp;·&nbsp; Computer Statistical Packages &nbsp;·&nbsp; Intro Data Sciences</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="s-label" style="justify-content:center">06 &nbsp;·&nbsp; Contact</div>
+    <h2 class="s-title">Get In Touch</h2>
+    <p class="contact-desc">
+      I'm actively looking for full-time data science roles starting mid-2026. If you're building something interesting — or just want to connect — I'd love to hear from you.
+    </p>
+    <a href="mailto:matorres0925@gmail.com" class="btn-p" style="display:inline-block; margin-bottom:2.5rem;">
+      Say Hello →
+    </a>
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/mauricio-torres-237a76296" target="_blank" class="contact-link">🔗 LinkedIn</a>
+      <a href="https://github.com/mauriciotorres-ds" target="_blank" class="contact-link">💻 GitHub</a>
+      <a href="assets/resume.pdf" target="_blank" class="contact-link">📄 Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed &amp; Built by Mauricio Torres &nbsp;·&nbsp; 2026</p>
+</footer>
+
+</body>
+</html>
