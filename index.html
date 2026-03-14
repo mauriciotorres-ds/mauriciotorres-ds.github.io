@@ -73,9 +73,10 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      display: flex; align-items: center;
+      display: flex; align-items: center; justify-content: center;
       padding: calc(var(--nav-h) + 3rem) 6% 5rem;
       position: relative; overflow: hidden;
+      text-align: center;
     }
     .hero-dots {
       position:absolute; inset:0; pointer-events:none;
@@ -94,7 +95,7 @@
       font-family:'JetBrains Mono',monospace;
       font-size: 0.82rem; color: var(--accent);
       letter-spacing:0.12em; margin-bottom:1.2rem;
-      display:flex; align-items:center; gap:0.6rem;
+      display:flex; align-items:center; justify-content:center; gap:0.6rem;
     }
     .hero-eyebrow::before {
       content:''; display:block; width:32px; height:1px; background:var(--accent);
@@ -111,9 +112,9 @@
     }
     .hero-desc {
       font-size:1rem; color:var(--tx2);
-      max-width:540px; margin-bottom:2.5rem; line-height:1.85;
+      max-width:600px; margin:0 auto 2.5rem; line-height:1.85;
     }
-    .ctas { display:flex; gap:1rem; flex-wrap:wrap; }
+    .ctas { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
     .btn-p {
       background:var(--accent); color:var(--bg);
       padding: 0.72rem 1.8rem; border-radius:8px;
@@ -341,7 +342,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">mt<span>.dev</span></a>
+  <a href="#hero" class="nav-logo">mt<span>.dev</span> 🇺🇸</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -360,7 +361,7 @@
     <h1>Mauricio<br><span class="accent">Torres.</span></h1>
     <p class="hero-sub">Data Scientist &nbsp;·&nbsp; Fintech &amp; ML &nbsp;·&nbsp; UVA MSDS</p>
     <p class="hero-desc">
-      I build machine learning models and analytical tools that turn messy data into clear decisions — with a focus on financial technology, fraud detection, and predictive analytics.
+      I build machine learning models and analytical tools that turn messy data into clear decisions, with a focus on financial technology, fraud detection, and predictive analytics. I'm well versed in cloud computing, especially AWS, Docker, and Terraform, which allows me to engineer efficient data cleaning pipelines and streamlined workflows. I'm also actively learning new technologies such as Rust and Databricks to expand my capabilities across modern AI.
     </p>
     <div class="ctas">
       <a href="#projects" class="btn-p">View My Work</a>
