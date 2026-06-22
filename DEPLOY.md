@@ -12,11 +12,11 @@ website/
 
 ---
 
-## Step 0: Add Your Headshot
-Save your headshot photo as **`headshot.jpg`** inside the `assets/img/` folder.
-- Any standard JPG/PNG works. Name it exactly `headshot.jpg`.
-- If you use a PNG, change line ~247 in index.html:
-  `<img src="assets/img/headshot.jpg"` → `<img src="assets/img/headshot.png"`
+## Step 0: Your Headshot
+Your headshot lives at **`assets/img/HeadShot02.JPG`** and is already wired into `index.html`.
+- To swap it, replace that file (keep the same name) or add a new image and update the
+  `<img src="assets/img/HeadShot02.JPG"` line in index.html to match.
+- Any standard JPG/PNG works.
 
 ---
 
@@ -33,7 +33,7 @@ mauriciotorres-ds.github.io/
 ├── assets/
 │   ├── resume.pdf
 │   └── img/
-│       └── headshot.jpg
+│       └── HeadShot02.JPG
 ```
 
 ---
